@@ -1,9 +1,12 @@
 export function createHeader() {
   const header = document.createElement('div');
   header.setAttribute('id', 'header');
+  header.appendChild(document.createTextNode('BURGERS'));
 
-  header.appendChild(document.createTextNode('I am header'));
+  const tabsArea = document.createElement('div');
+  tabsArea.setAttribute('id', 'tabs-area');
 
+  header.appendChild(tabsArea);
 
   return header;
 }
