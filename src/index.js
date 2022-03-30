@@ -1,4 +1,4 @@
-import { createHeader, createBody, createFooter } from './area';
+import { createHeader, createBody, createFooter, createArea } from './area';
 import { createTabs } from './tab';
 
 const content = document.querySelector('#content');

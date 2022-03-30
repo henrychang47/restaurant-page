@@ -1,54 +1,58 @@
+import homeContent from './pageContents/home'
+import menuContent from './pageContents/menu';
+import contactContent from './pageContents/contact';
+
 export function createTabs(tabName) {
-  const header = document.querySelector('#header');
   const body = document.querySelector('#body');
   const tabsArea = document.querySelector('#tabs-area')
 
-  const { homeTab, homeContent } = createHome();
-  const { menuTab, menuContent } = createMenu();
-  const { contactTab, contactContent } = createContact();
+  const homeTab = createHomeTab();
+  const menuTab = createMenuTab();
+  const contactTab = createContactTab();
+
+  let lastContent = menuContent;// init page
+  body.appendChild(lastContent);
 
   tabsArea.appendChild(homeTab);
-  homeTab.addEventListener('click', () => {
-    body.innerHTML = homeContent;
-  });
-
   tabsArea.appendChild(menuTab);
-  menuTab.addEventListener('click', () => {
-    body.innerHTML = menuContent;
+  tabsArea.appendChild(contactTab);
+
+  homeTab.addEventListener('click', () => {
+    body.replaceChild(homeContent, lastContent);
+    lastContent = homeContent;
   });
 
-  tabsArea.appendChild(contactTab);
+  menuTab.addEventListener('click', () => {
+    body.replaceChild(menuContent, lastContent);
+    lastContent = menuContent;
+  });
+
   contactTab.addEventListener('click', () => {
-    body.innerHTML = contactContent;
+    body.replaceChild(contactContent, lastContent);
+    lastContent = contactContent;
   });
 }
 
-function createHome() {
+function createHomeTab() {
   const homeTab = document.createElement('div');
   homeTab.appendChild(document.createTextNode("Home"));
   homeTab.setAttribute('class', 'tab');
 
-  const homeContent = 'Home';
-
-  return { homeTab, homeContent };
+  return homeTab;
 }
 
-function createMenu() {
+function createMenuTab() {
   const menuTab = document.createElement('div');
-  menuTab.appendChild(document.createTextNode("menu"));
+  menuTab.appendChild(document.createTextNode("Menu"));
   menuTab.setAttribute('class', 'tab');
 
-  const menuContent = 'menu';
-
-  return { menuTab, menuContent };
+  return menuTab;
 }
 
-function createContact() {
+function createContactTab() {
   const contactTab = document.createElement('div');
-  contactTab.appendChild(document.createTextNode("contact"));
+  contactTab.appendChild(document.createTextNode("Contact"));
   contactTab.setAttribute('class', 'tab');
 
-  const contactContent = 'contact';
-
-  return { contactTab, contactContent };
+  return contactTab;
 }
