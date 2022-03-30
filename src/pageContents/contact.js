@@ -8,7 +8,7 @@ function contact() {
   header.textContent = 'Contact Us';
 
   paragraph1.textContent = `Phone: 1234-567-890`;
-  paragraph2.textContent = `Email:burgers@eat.com`;
+  paragraph2.textContent = `Email:weloveburgers@eat.com`;
 
 
   content.setAttribute('class', 'bodyContent');

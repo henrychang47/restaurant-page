@@ -3,10 +3,9 @@ export function createHeader() {
   const tabsArea = document.createElement('div');
 
   header.setAttribute('id', 'header');
-  header.appendChild(document.createTextNode('BURGERS'));
-
   tabsArea.setAttribute('id', 'tabs-area');
-  header.appendChild(tabsArea);
+
+  header.append('BURGERS', tabsArea);
 
   return header;
 }

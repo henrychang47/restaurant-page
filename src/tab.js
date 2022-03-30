@@ -2,7 +2,7 @@ import homeContent from './pageContents/home'
 import menuContent from './pageContents/menu';
 import contactContent from './pageContents/contact';
 
-export function createTabs(tabName) {
+export function createTabs() {
   const body = document.querySelector('#body');
   const tabsArea = document.querySelector('#tabs-area')
 
@@ -10,7 +10,7 @@ export function createTabs(tabName) {
   const menuTab = createMenuTab();
   const contactTab = createContactTab();
 
-  let lastContent = menuContent;// init page
+  let lastContent = homeContent;// init page
   body.appendChild(lastContent);
 
   tabsArea.appendChild(homeTab);
